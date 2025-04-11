@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samip Upreti | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6/2bZbhk1YF2OzP3hV4+FfVfvKYZC8q9+5jIbF1vckgIf62AoygN9+ZVb9KVaNqD+OEIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #333;
+      --header-bg: #fff;
+      --header-text: #222;
+      --accent: #000000;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --header-bg: #1f1f1f;
+      --header-text: #f5f5f5;
+      --accent: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 4px solid var(--accent);
+    }
+
+    .animated-img {
+      opacity: 0;
+      animation: fadeSlideIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .item {
+      margin-bottom: 1.5rem;
+    }
+
+    .item h3 {
+      font-size: 1.25rem;
+    }
+
+    .item span {
+      display: block;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .skills {
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 100;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-button:hover {
+      background-color: #555;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .toggle-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+    
+  </style>
+</head>
+
+<body data-theme="light">
+  <button class="toggle-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i> Display Mode </button>
+
+  <header>
+    <img src="samip.jpg" alt="Samip Upreti" class="profile-img animated-img" />
+    <h1>Samip Upreti</h1>
+    <p>ICT Educator | Programmer</p>
+    <p>Kathmandu, Nepal</p>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        With a solid foundation in software development gained through a rewarding 3-month internship and 1 year of experience as an ICT educator at GEMS, I bring hands-on expertise to the table. Currently thriving as an ICT educator at Rato Bangala School, I passionately impart technology knowledge, making a tangible impact on the learning journey. My dynamic skill set and dedication make me an asset in both the development and education spheres.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="item">
+        <h3>Computer Science Teacher – Rato Bangala School</h3>
+        <span id="ratoDuration"></span>
+        <span>Lalitpur District, Nepal · On-site</span>
+        <div class="skills">Computer Science, Teaching and +2 skills</div>
+      </div>
+
+      <div class="item">
+        <h3>ICT Educator – Gems School</h3>
+        <span>Nov 2023 - Oct 2024 · 1 yr</span>
+        <span>Lalitpur District, Nepal · On-site</span>
+        <div class="skills">Computer Science, Teaching and +2 skills</div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="item">
+        <h3>Master's in Information Technology – Tribhuvan University</h3>
+        <span>From Feb 2025 </span>
+        <div class="skills">Software Development and Computer Science</div>
+      </div>
+
+      <div class="item">
+        <h3>BSc.CSIT – Tribhuvan University</h3>
+        <span>Jan 2018 - Jan 2022</span>
+        <div class="skills">Computer Science and Software Development</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Samip Upreti. All rights reserved.</p>
+    <a href="https://www.linkedin.com/in/samip-upreti/" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin fa-2x" style="color: var(--accent); margin-top: 10px;"></i>
+    </a>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-theme', newTheme);
+    }
+
+    function updateRatoDuration() {
+      const startDate = new Date(2024, 9); // October 2024
+      const now = new Date();
+      const months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+      const years = Math.floor(months / 12);
+      const remainingMonths = months % 12;
+
+      let duration = "Oct 2024 - Present · ";
+      if (years > 0) duration += `${years} yr${years > 1 ? 's' : ''}`;
+      if (remainingMonths > 0) duration += `${years > 0 ? ' ' : ''}${remainingMonths} mo${remainingMonths > 1 ? 's' : ''}`;
+      if (months === 0) duration += "Less than a month";
+
+      document.getElementById("ratoDuration").textContent = duration;
+    }
+
+    updateRatoDuration();
+  </script>
+</body>
+
+</html>
