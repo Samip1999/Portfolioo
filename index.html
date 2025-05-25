@@ -2,83 +2,303 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samip Upreti | Developer & ICT Educator</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samip Upreti - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --text-light: #e0e0e0;
+      --neon-blue: #00f0ff;
+      --neon-pink: #ff4aff;
+      --accent: var(--neon-blue);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #111;
+      border-bottom: 1px solid #222;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      text-shadow: 0 0 5px var(--accent);
+    }
+
+    .nav-link {
+      margin-left: 1rem;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent);
+    }
+
+    main {
+      padding-top: 80px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section {
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2 {
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
+    }
+
+    .item {
+      margin-top: 20px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .skills {
+      margin-top: 10px;
+      color: var(--neon-pink);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      background: #111;
+      border: 1px solid #333;
+      color: var(--text-light);
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--neon-pink);
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-right: 10px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: var(--neon-pink);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+      border-top: 1px solid #222;
+    }
+
+    #toggle-theme {
+      background: none;
+      border: 1px solid var(--accent);
+      padding: 5px 10px;
+      margin-left: 20px;
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-<body>
+<body data-theme="dark">
   <header>
     <nav>
-      <div class="logo">Samip</div>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <section class="hero">
-      <h1>Hi, I'm <span class="highlight">Samip Upreti</span></h1>
-      <p class="typewriter">Software Developer & ICT Educator</p>
-      <div class="icons">
-        <i class="fas fa-laptop-code" title="Developer"></i>
-        <i class="fas fa-chalkboard-teacher" title="Educator"></i>
+      <div class="logo">Samip Upreti</div>
+      <div>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button id="toggle-theme">Light Mode</button>
       </div>
-    </section>
+    </nav>
   </header>
 
   <main>
     <section id="about" class="section">
       <h2>About Me</h2>
       <p>
-        With a solid foundation in software development gained through a rewarding 3-month internship and 1 year of experience as an ICT educator at GEMS, I bring hands-on expertise to the table. Currently thriving as an ICT educator at Rato Bangala School, I passionately impart technology knowledge, making a tangible impact on the learning journey.
+        I am a passionate developer and educator based in Nepal. With a BSc.CSIT degree and experience as an
+        ICT Educator, I currently serve as a Primary ICT Teacher at Rato Bangala School. My passion lies in
+        simplifying complex tech concepts for young learners while exploring creative problem-solving through
+        coding. I love contributing to meaningful projects that blend education and technology.
       </p>
     </section>
 
     <section id="experience" class="section">
       <h2>Experience</h2>
-      <div class="card">
-        <h3>Computer Science Teacher – Rato Bangala School</h3>
-        <p class="duration" id="ratoDuration"></p>
-        <p>Lalitpur District, Nepal · On-site</p>
+      <div class="item">
+        <h3><i class="fas fa-chalkboard-teacher"></i> Primary ICT Teacher - Rato Bangala School</h3>
+        <span>October 2024 – Present | Lalitpur, Nepal</span>
+        <p>Teaching computer science and Makerspace activities to primary-level students.</p>
+        <div class="skills">Project-based Learning</div>
       </div>
-      <div class="card">
-        <h3>ICT Educator – Gems School</h3>
-        <p>Nov 2023 - Oct 2024 · 1 yr</p>
-        <p>Lalitpur District, Nepal · On-site</p>
+      <div class="item">
+        <h3><i class="fas fa-laptop-code"></i> ICT Educator - Gems School</h3>
+        <span>November 2023 – October 2024 | Lalitpur, Nepal</span>
+        <p>Delivered digital literacy lessons, integrated technology in classrooms, and supported ICT curriculum
+          development.</p>
       </div>
     </section>
 
     <section id="education" class="section">
       <h2>Education</h2>
-      <div class="card">
-        <h3>BSc.CSIT – Tribhuvan University</h3>
-        <p>Jan 2018 - Jan 2022</p>
-        <p>Computer Science and Software Development</p>
+      <div class="item">
+        <h3><i class="fas fa-graduation-cap"></i> BSc.CSIT - Tribhuvan University</h3>
+        <span>Graduated 2024</span>
+        <p>Completed coursework in computer science, database systems, networking, and software engineering.</p>
       </div>
     </section>
 
     <section id="contact" class="section">
-      <h2>Contact Me</h2>
+      <h2>Contact</h2>
       <form id="contact-form">
-        <input type="text" name="from_name" placeholder="Your Name" required />
-        <input type="email" name="from_email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
+        <label for="from_name">Name</label>
+        <input type="text" name="from_name" required />
+
+        <label for="email">Email</label>
+        <input type="email" name="reply_to" required />
+
+        <label for="message">Message</label>
+        <textarea name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/samipupreti" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/samipupreti" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
       </form>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/samip-upreti/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/Samip1999" target="_blank"><i class="fab fa-github"></i></a>
-      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Samip Upreti. All rights reserved.</p>
+    &copy; 2025 Samip Upreti. All rights reserved.
   </footer>
+
+  <script>
+    // Initialize EmailJS
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+
+    // Smooth reveal animation
+    const sections = document.querySelectorAll(".section");
+
+    const revealOnScroll = () => {
+      sections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          sec.classList.add("visible");
+        }
+      });
+    };
+
+    document.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // Navigation link active effect
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function setActiveLink(link) {
+      navLinks.forEach((ln) => ln.classList.remove("active"));
+      link.classList.add("active");
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setActiveLink(link));
+    });
+
+    // Theme toggle
+    const themeBtn = document.getElementById("toggle-theme");
+    themeBtn.addEventListener("click", () => {
+      const body = document.body;
+      const currentTheme = body.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      body.setAttribute("data-theme", newTheme);
+      themeBtn.textContent = newTheme === "light" ? "Dark Mode" : "Light Mode";
+    });
+
+    // EmailJS form submit
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this).then(
+        () => {
+          alert("Message sent!");
+          this.reset();
+        },
+        (err) => {
+          alert("Send failed: " + JSON.stringify(err));
+        }
+      );
+    });
+  </script>
 </body>
 </html>
+
