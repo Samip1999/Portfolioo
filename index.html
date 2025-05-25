@@ -1,251 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Samip Upreti | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    :root {
-      --bg-light: #f9f9f9;
-      --bg-dark: #121212;
-      --text-light: #1c1c1c;
-      --text-dark: #f1f1f1;
-      --accent: #2563eb;
-      --header-bg-light: #ffffff;
-      --header-bg-dark: #1e1e1e;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: var(--bg-dark);
-      --text-color: var(--text-dark);
-      --header-bg: var(--header-bg-dark);
-    }
-
-    [data-theme="light"] {
-      --bg-color: var(--bg-light);
-      --text-color: var(--text-light);
-      --header-bg: var(--header-bg-light);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: var(--bg-color);
-      color: var(--text-color);
-      transition: 0.3s ease all;
-      line-height: 1.6;
-    }
-
-    .toggle-button {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.6rem 1rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      z-index: 999;
-      font-size: 0.9rem;
-    }
-
-    header {
-      background-color: var(--header-bg);
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-    }
-
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      color: var(--accent);
-    }
-
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 0.2rem;
-    }
-
-    .item {
-      margin-bottom: 1.5rem;
-    }
-
-    .item h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .item span {
-      display: block;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .skills {
-      margin-top: 0.5rem;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .contact p,
-    .contact a {
-      font-size: 1rem;
-      color: var(--text-color);
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.1);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.85rem;
-      color: #888;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-
-<body data-theme="light">
-  <button class="toggle-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i> Toggle Mode</button>
+<body>
   <header>
-    <h1>Samip Upreti</h1>
-    <p>ICT Educator | Programmer</p>
-    <p>Kathmandu, Nepal</p>
+    <nav class="navbar">
+      <div class="logo">Samip Upreti</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>
-        With a strong foundation in software development gained through a rewarding 3-month internship and 1 year of experience as an ICT educator at GEMS, I bring hands-on expertise to the table. Currently thriving as an ICT educator at Rato Bangala School, I passionately impart technology knowledge, making a tangible impact on the learning journey. My dynamic skill set and dedication make me an asset in both the development and education spheres.
-      </p>
-    </section>
+  <section class="hero">
+    <h1>Hello, I'm <span>Samip Upreti</span></h1>
+    <p>Software Developer <i class="fas fa-code"></i> & ICT Educator <i class="fas fa-chalkboard-teacher"></i></p>
+  </section>
 
-    <section>
-      <h2>Experience</h2>
-      <div class="item">
-        <h3>Computer Science Teacher – Rato Bangala School</h3>
-        <span id="ratoDuration"></span>
-        <span>Lalitpur District, Nepal · On-site</span>
-        <div class="skills">Computer Science, Teaching, Classroom Management</div>
-      </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate software developer and ICT educator with experience in developing modern web applications and teaching students with a focus on computational thinking and digital citizenship.</p>
+  </section>
 
-      <div class="item">
-        <h3>ICT Educator – Gems School</h3>
-        <span>Nov 2023 - Oct 2024 · 1 yr</span>
-        <span>Lalitpur District, Nepal · On-site</span>
-        <div class="skills">ICT, Project-Based Learning, Digital Literacy</div>
-      </div>
-    </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Coming Soon...</p>
+  </section>
 
-    <section>
-      <h2>Education</h2>
-      <div class="item">
-        <h3>BSc.CSIT – Tribhuvan University</h3>
-        <span>Jan 2018 - Jan 2022</span>
-        <div class="skills">Computer Science, Software Engineering</div>
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:upretsamip@gmail.com">upretsamip@gmail.com</a></p>
-      <p>Address: Kathmandu, Nepal</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/samip-upreti/" target="_blank" title="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/Samip1999" target="_blank" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-    </section>
-  </main>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT_HERE" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
   <footer>
     <p>&copy; 2025 Samip Upreti. All rights reserved.</p>
   </footer>
-
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute("data-theme");
-      body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-    }
-
-    function updateRatoDuration() {
-      const startDate = new Date(2024, 9);
-      const now = new Date();
-      const months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-      const years = Math.floor(months / 12);
-      const remainingMonths = months % 12;
-
-      let duration = "Oct 2024 - Present · ";
-      if (years > 0) duration += `${years} yr${years > 1 ? 's' : ''}`;
-      if (remainingMonths > 0) duration += `${years > 0 ? ' ' : ''}${remainingMonths} mo${remainingMonths > 1 ? 's' : ''}`;
-      if (months === 0) duration += "Less than a month";
-
-      document.getElementById("ratoDuration").textContent = duration;
-    }
-    updateRatoDuration();
-  </script>
 </body>
-
 </html>
