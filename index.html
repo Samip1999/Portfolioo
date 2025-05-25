@@ -115,28 +115,7 @@
       color: var(--text-light);
     }
 
-    button {
-      padding: 10px;
-      border: none;
-      background-color: var(--accent);
-      color: #000;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background-color: var(--neon-pink);
-    }
-    body.light-mode {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-body.dark-mode {
-  background-color: #000000;
-  color: #ffffff;
-}
+   
 
     .social-icons {
       margin-top: 20px;
@@ -161,14 +140,7 @@ body.dark-mode {
       border-top: 1px solid #222;
     }
 
-    #toggle-theme {
-      background: none;
-      border: 1px solid var(--accent);
-      padding: 5px 10px;
-      margin-left: 20px;
-      color: var(--accent);
-      cursor: pointer;
-    }
+
 
     @media screen and (max-width: 768px) {
       nav {
@@ -182,13 +154,7 @@ body.dark-mode {
   <header>
     <nav>
       <div class="logo">Samip Upreti</div>
-      <div>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <button id="theme-toggle">Toggle Theme</button>
-      </div>
+     
     </nav>
   </header>
 
@@ -284,27 +250,8 @@ body.dark-mode {
       link.addEventListener("click", () => setActiveLink(link));
     });
 
-    // Theme toggle
-   const toggleButton = document.getElementById('theme-toggle');
-const body = document.body;
 
-// Check for saved user preference, if any, on load of the website
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme) {
-  body.classList.add(currentTheme);
-} else {
-  body.classList.add('light-mode'); // Default theme
-}
 
-toggleButton.addEventListener('click', () => {
-  if (body.classList.contains('light-mode')) {
-    body.classList.replace('light-mode', 'dark-mode');
-    localStorage.setItem('theme', 'dark-mode');
-  } else {
-    body.classList.replace('dark-mode', 'light-mode');
-    localStorage.setItem('theme', 'light-mode');
-  }
-});
 
 
     // EmailJS form submit
