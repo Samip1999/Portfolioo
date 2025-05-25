@@ -5,75 +5,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samip Upreti | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6/2bZbhk1YF2OzP3hV4+FfVfvKYZC8q9+5jIbF1vckgIf62AoygN9+ZVb9KVaNqD+OEIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
-      --bg-color: #f5f5f5;
-      --text-color: #333;
-      --header-bg: #fff;
-      --header-text: #222;
-      --accent: #000000;
+      --bg-light: #f9f9f9;
+      --bg-dark: #121212;
+      --text-light: #1c1c1c;
+      --text-dark: #f1f1f1;
+      --accent: #2563eb;
+      --header-bg-light: #ffffff;
+      --header-bg-dark: #1e1e1e;
     }
 
     [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #eee;
-      --header-bg: #1f1f1f;
-      --header-text: #f5f5f5;
-      --accent: #ffffff;
+      --bg-color: var(--bg-dark);
+      --text-color: var(--text-dark);
+      --header-bg: var(--header-bg-dark);
+    }
+
+    [data-theme="light"] {
+      --bg-color: var(--bg-light);
+      --text-color: var(--text-light);
+      --header-bg: var(--header-bg-light);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     body {
-      background-color: var(--bg-color);
+      background: var(--bg-color);
       color: var(--text-color);
-      transition: background-color 0.4s, color 0.4s;
+      transition: 0.3s ease all;
+      line-height: 1.6;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-      text-align: justify;
-      text-justify: inter-word;
+    .toggle-button {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.6rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+      font-size: 0.9rem;
     }
 
     header {
       background-color: var(--header-bg);
-      color: var(--header-text);
       text-align: center;
       padding: 3rem 1rem 2rem;
-      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-   
-
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.8rem;
+      font-weight: 700;
     }
 
     header p {
+      margin-top: 0.5rem;
       font-size: 1.1rem;
       color: var(--accent);
     }
 
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
     section {
-      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
       color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.2rem;
     }
 
     .item {
@@ -81,165 +100,138 @@
     }
 
     .item h3 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
+      font-weight: 600;
     }
 
     .item span {
       display: block;
       font-size: 0.9rem;
-      color: #888;
+      color: #777;
     }
 
     .skills {
-      color: #555;
       margin-top: 0.5rem;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #555;
     }
 
-    .toggle-button {
-      position: fixed;
-      top: 10px;
-      right: 10px;
+    .contact p,
+    .contact a {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
       background: var(--accent);
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 100;
-      font-size: 0.9rem;
-      transition: background-color 0.3s;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
     }
 
-    .toggle-button:hover {
-      background-color: #555;
+    .social-icons a:hover {
+      transform: scale(1.1);
     }
 
     footer {
       text-align: center;
-      margin-top: 3rem;
-      padding: 2rem 0;
-      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
       color: #888;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
       }
-
-      .profile-img {
-        width: 120px;
-        height: 120px;
-      }
-
-      .toggle-button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-      }
     }
-    /* Contact Section */
-    .contact a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: #333;
-    color: #fff;
-    font-size: 1.5em;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-}
-
-.social-icons a:hover {
-    background-color: #007bff; /* Change color on hover */
-}
   </style>
 </head>
 
 <body data-theme="light">
-  <button class="toggle-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i> Display Mode </button>
-
+  <button class="toggle-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i> Toggle Mode</button>
   <header>
-
     <h1>Samip Upreti</h1>
     <p>ICT Educator | Programmer</p>
     <p>Kathmandu, Nepal</p>
   </header>
 
-  <div class="container">
-    <section id="about">
+  <main>
+    <section>
       <h2>About</h2>
       <p>
-        With a solid foundation in software development gained through a rewarding 3-month internship and 1 year of experience as an ICT educator at GEMS, I bring hands-on expertise to the table. Currently thriving as an ICT educator at Rato Bangala School, I passionately impart technology knowledge, making a tangible impact on the learning journey. My dynamic skill set and dedication make me an asset in both the development and education spheres.
+        With a strong foundation in software development gained through a rewarding 3-month internship and 1 year of experience as an ICT educator at GEMS, I bring hands-on expertise to the table. Currently thriving as an ICT educator at Rato Bangala School, I passionately impart technology knowledge, making a tangible impact on the learning journey. My dynamic skill set and dedication make me an asset in both the development and education spheres.
       </p>
     </section>
 
-    <section id="experience">
+    <section>
       <h2>Experience</h2>
-
       <div class="item">
         <h3>Computer Science Teacher – Rato Bangala School</h3>
         <span id="ratoDuration"></span>
         <span>Lalitpur District, Nepal · On-site</span>
-        <div class="skills">Computer Science, Teaching and +2 skills</div>
+        <div class="skills">Computer Science, Teaching, Classroom Management</div>
       </div>
 
       <div class="item">
         <h3>ICT Educator – Gems School</h3>
         <span>Nov 2023 - Oct 2024 · 1 yr</span>
         <span>Lalitpur District, Nepal · On-site</span>
-        <div class="skills">Computer Science, Teaching and +2 skills</div>
+        <div class="skills">ICT, Project-Based Learning, Digital Literacy</div>
       </div>
     </section>
 
-    <section id="education">
+    <section>
       <h2>Education</h2>
-
-     
-
       <div class="item">
         <h3>BSc.CSIT – Tribhuvan University</h3>
         <span>Jan 2018 - Jan 2022</span>
-        <div class="skills">Computer Science and Software Development</div>
+        <div class="skills">Computer Science, Software Engineering</div>
       </div>
     </section>
-  </div>
 
-  
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:upretsamip@gmail.com">upretsamip@gmail.com</a></p>
+      <p>Address: Kathmandu, Nepal</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/samip-upreti/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Samip1999" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Samip Upreti. All rights reserved.</p>
+  </footer>
 
   <script>
     function toggleTheme() {
       const body = document.body;
-      const currentTheme = body.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      body.setAttribute('data-theme', newTheme);
+      const current = body.getAttribute("data-theme");
+      body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
     }
 
     function updateRatoDuration() {
-      const startDate = new Date(2024, 9); // October 2024
+      const startDate = new Date(2024, 9);
       const now = new Date();
       const months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
       const years = Math.floor(months / 12);
@@ -252,27 +244,8 @@
 
       document.getElementById("ratoDuration").textContent = duration;
     }
-
     updateRatoDuration();
   </script>
-  <section class="contact container">
-    <h2 class="section-title">Contact Me</h2>
-    <p>Email: <a href="mailto:upretsamip@gmail.com">upretsamip@gmail.com</a></p>
-    <p>Address: Kathmandu,Nepal</p>
-    <div class="social-icons">
-        <a href="https://www.linkedin.com/in/samip-upreti/" target="_blank" title="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/Samip1999" target="_blank" title="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
-
-</section>
-<footer>
-  <p>&copy; 2025 Samip Upreti. All rights reserved.</p>
- 
-</footer>
 </body>
 
 </html>
