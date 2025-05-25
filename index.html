@@ -128,6 +128,15 @@
     button:hover {
       background-color: var(--neon-pink);
     }
+    body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
 
     .social-icons {
       margin-top: 20px;
@@ -178,7 +187,7 @@
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#education" class="nav-link">Education</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <button id="toggle-theme">Light Mode</button>
+        <button id="theme-toggle">Toggle Theme</button>
       </div>
     </nav>
   </header>
@@ -276,19 +285,32 @@
     });
 
     // Theme toggle
-    const themeBtn = document.getElementById("toggle-theme");
-    themeBtn.addEventListener("click", () => {
-      const body = document.body;
-      const currentTheme = body.getAttribute("data-theme");
-      const newTheme = currentTheme === "light" ? "dark" : "light";
-      body.setAttribute("data-theme", newTheme);
-      themeBtn.textContent = newTheme === "light" ? "Dark Mode" : "Light Mode";
-    });
+   const toggleButton = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Check for saved user preference, if any, on load of the website
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+  body.classList.add(currentTheme);
+} else {
+  body.classList.add('light-mode'); // Default theme
+}
+
+toggleButton.addEventListener('click', () => {
+  if (body.classList.contains('light-mode')) {
+    body.classList.replace('light-mode', 'dark-mode');
+    localStorage.setItem('theme', 'dark-mode');
+  } else {
+    body.classList.replace('dark-mode', 'light-mode');
+    localStorage.setItem('theme', 'light-mode');
+  }
+});
+
 
     // EmailJS form submit
     document.getElementById("contact-form").addEventListener("submit", function (e) {
       e.preventDefault();
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this).then(
+      emailjs.sendForm("service_g9xc5qi", "service_g9xc5qi", this).then(
         () => {
           alert("Message sent!");
           this.reset();
