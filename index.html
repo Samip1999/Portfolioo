@@ -1,68 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Samip Upreti - Software Developer and Primary ICT Teacher. Explore my work, skills, and contact information." />
-  <meta name="author" content="Samip Upreti" />
-  <meta name="keywords" content="Samip Upreti, Software Developer, ICT Teacher, Portfolio, JavaScript Developer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Samip Upreti - Developer and Educator based in Nepal">
+  <meta name="keywords" content="Samip Upreti, Developer, Educator, Portfolio, ICT, Nepal">
+  <meta name="author" content="Samip Upreti">
+  <link rel="canonical" href="https://yourdomain.com">
 
-  <title>Samip Upreti | Portfolio</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Samip Upreti - Developer & Educator">
+  <meta property="og:description" content="Personal portfolio of Samip Upreti, ICT Teacher and Developer from Nepal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:image" content="https://yourdomain.com/preview.png">
 
-  <link rel="canonical" href="https://samipupreti.com.np/" />
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="Samip Upreti | Portfolio" />
-  <meta property="og:description" content="Explore my work as a software developer and ICT educator." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://samipupreti.com.np/" />
-  <meta property="og:image" content="https://samipupreti.com.np/images/og-image.jpg" />
-
-  <!-- Schema Markup -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Samip Upreti",
-    "url": "https://samipupreti.com.np",
-    "sameAs": [
-      "https://linkedin.com/in/samipupreti",
-      "https://github.com/samipupreti"
-    ],
-    "jobTitle": "Software Developer & ICT Teacher",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Rato Bangala School"
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Samip Upreti",
+      "url": "https://yourdomain.com",
+      "sameAs": [
+        "https://linkedin.com/in/samipupreti",
+        "https://github.com/samipupreti"
+      ],
+      "jobTitle": "ICT Teacher and Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Rato Bangala School"
+      }
     }
-  }
+  </script>
+
+  <title>Samip Upreti - Developer & Educator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
   </script>
 </head>
 <body>
   <header>
     <h1>Samip Upreti</h1>
-    <p>Software Developer & ICT Teacher</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <main>
     <section id="about">
       <h2>About Me</h2>
-      <p>I’m Samip Upreti, a software developer and Primary ICT Teacher based in Nepal. I have a strong interest in clean code, STEM education, and intuitive user experiences.</p>
+      <p>I am a developer and educator based in Nepal. With a BSc.CSIT degree and experience in ICT education, I specialize in simplifying complex tech concepts and building creative projects.</p>
     </section>
 
     <section id="experience">
       <h2>Experience</h2>
-      <ul>
-        <li><strong>Rato Bangala School</strong> – Computer Science Teacher (Oct 2024 - Present)</li>
-        <li><strong>Gems School</strong> – ICT Educator (Nov 2023 - Oct 2024)</li>
-      </ul>
+      <div>
+        <h3>Primary ICT Teacher - Rato Bangala School</h3>
+        <p>Oct 2024 – Present | Lalitpur, Nepal</p>
+        <p>Teaching computer science and Makerspace activities to primary-level students.</p>
+      </div>
+      <div>
+        <h3>ICT Educator - Gems School</h3>
+        <p>Nov 2023 – Oct 2024 | Lalitpur, Nepal</p>
+        <p>Delivered digital literacy lessons and supported ICT curriculum development.</p>
+      </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:upretsamip@gmail.com">upretsamip@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/samipupreti">@samipupreti</a></p>
-      <p>GitHub: <a href="https://github.com/samipupreti">@samipupreti</a></p>
+      <form id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="social">
+        <a href="https://linkedin.com/in/samipupreti" target="_blank">LinkedIn</a>
+        <a href="https://github.com/samipupreti" target="_blank">GitHub</a>
+      </div>
     </section>
   </main>
 
@@ -70,13 +99,12 @@
     <p>&copy; 2025 Samip Upreti. All rights reserved.</p>
   </footer>
 
-  <!-- Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Message sent (demo only).");
+      this.reset();
+    });
   </script>
 </body>
 </html>
