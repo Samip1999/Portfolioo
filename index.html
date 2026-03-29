@@ -1,95 +1,1041 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Samip Upreti - Developer and Educator based in Nepal" />
-  <meta name="keywords" content="Samip Upreti, Developer, Educator, Portfolio, ICT, Nepal" />
-  <meta name="author" content="Samip Upreti" />
-  <link rel="canonical" href="https://yourdomain.com" />
-  <meta property="og:title" content="Samip Upreti - Developer & Educator" />
-  <meta property="og:description" content="Personal portfolio of Samip Upreti, ICT Teacher and Developer from Nepal." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com" />
-  <meta property="og:image" content="https://yourdomain.com/preview.png" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Samip Upreti",
-      "url": "https://yourdomain.com",
-      "sameAs": [
-        "https://linkedin.com/in/samipupreti",
-        "https://github.com/samipupreti"
-      ],
-      "jobTitle": "ICT Teacher and Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Rato Bangala School"
-      }
-    }
-  </script>
-  <title>Samip Upreti - Developer & Educator</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAMIP UPRETI // PORTFOLIO</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00ff41;
+    --green-dim: #00cc33;
+    --green-dark: #003b00;
+    --green-glow: #00ff4180;
+    --amber: #ffb000;
+    --bg: #0a0a0a;
+    --bg2: #0d0d0d;
+    --grid: #0f1f0f;
+    --border: #00ff4140;
+    --border-bright: #00ff4190;
+    --scanline: rgba(0,0,0,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* Scanline overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      var(--scanline) 2px,
+      var(--scanline) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    animation: scanMove 8s linear infinite;
+  }
+
+  /* CRT flicker */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.5) 100%);
+    pointer-events: none;
+    z-index: 9998;
+  }
+
+  @keyframes scanMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100px; }
+  }
+
+  /* Grid background */
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid var(--border-bright);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    backdrop-filter: blur(4px);
+  }
+
+  .nav-logo {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--green);
+    text-shadow: 0 0 10px var(--green-glow);
+    letter-spacing: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--green-dim);
+    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::before { content: '> '; color: var(--amber); }
+  .nav-links a:hover { color: var(--green); text-shadow: 0 0 8px var(--green-glow); }
+
+  .status-bar {
+    font-size: 11px;
+    color: var(--green-dim);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 6vw 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-pre {
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .hero-title {
+    font-family: 'VT323', monospace;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9;
+    color: var(--green);
+    text-shadow:
+      0 0 20px var(--green-glow),
+      0 0 60px rgba(0,255,65,0.2),
+      2px 2px 0 #003300;
+    margin-bottom: 0.5rem;
+    animation: glitch 8s infinite;
+    letter-spacing: 2px;
+  }
+
+  @keyframes glitch {
+    0%, 92%, 100% { text-shadow: 0 0 20px var(--green-glow), 0 0 60px rgba(0,255,65,0.2), 2px 2px 0 #003300; transform: translate(0); }
+    93% { text-shadow: -2px 0 #ff0044, 2px 2px 0 #003300; transform: translate(-2px, 0); }
+    94% { text-shadow: 2px 0 #00ffff, 2px 2px 0 #003300; transform: translate(2px, 0); }
+    95% { text-shadow: 0 0 20px var(--green-glow); transform: translate(0); }
+    96% { text-shadow: -2px 0 #ff0044; transform: translate(-1px, 1px); }
+    97% { text-shadow: 0 0 20px var(--green-glow); transform: translate(0); }
+  }
+
+  .hero-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--amber);
+    margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease;
+  }
+
+  .hero-desc {
+    max-width: 600px;
+    color: var(--green-dim);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    border-left: 2px solid var(--border-bright);
+    padding-left: 1rem;
+    animation: fadeIn 1s ease;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeIn 1.2s ease;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--green);
+    background: transparent;
+    color: var(--green);
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--green);
+    opacity: 0;
+    transition: opacity 0.2s;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .btn:hover::before { opacity: 0.15; }
+  .btn:hover { box-shadow: 0 0 15px var(--green-glow); text-shadow: 0 0 8px var(--green-glow); }
+
+  .btn.amber {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+  .btn.amber:hover { box-shadow: 0 0 15px rgba(255,176,0,0.4); }
+  .btn.amber::before { background: var(--amber); }
+
+  /* TERMINAL WINDOW */
+  .terminal {
+    background: rgba(0,15,0,0.8);
+    border: 1px solid var(--border-bright);
+    margin: 0 6vw 4rem;
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+
+  .terminal-bar {
+    background: var(--green-dark);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .terminal-dots { display: flex; gap: 6px; }
+  .terminal-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 1px solid;
+  }
+  .dot-r { background: #ff5f57; border-color: #e0443e; }
+  .dot-y { background: #febc2e; border-color: #d4a017; }
+  .dot-g { background: #28c840; border-color: #1aab29; }
+
+  .terminal-title {
+    font-family: 'Share Tech Mono';
+    font-size: 12px;
+    color: var(--green-dim);
+    flex: 1;
+    text-align: center;
+  }
+
+  .terminal-body {
+    padding: 1.5rem;
+    font-size: 13px;
+    line-height: 2;
+    color: var(--green-dim);
+  }
+
+  .terminal-body .cmd { color: var(--amber); }
+  .terminal-body .output { color: var(--green); }
+  .terminal-body .comment { color: #005500; }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 6vw;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-num {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--amber);
+    opacity: 0.7;
+  }
+
+  .section-title {
+    font-family: 'VT323', monospace;
+    font-size: 3rem;
+    color: var(--green);
+    text-shadow: 0 0 15px var(--green-glow);
+    letter-spacing: 3px;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border-bright), transparent);
+  }
+
+  /* ABOUT */
+  #about .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--green-dim);
+    margin-bottom: 1rem;
+    line-height: 1.9;
+    font-size: 14px;
+  }
+
+  .about-text p::first-letter {
+    font-family: 'VT323';
+    font-size: 2rem;
+    color: var(--green);
+    float: left;
+    margin-right: 4px;
+    line-height: 1;
+  }
+
+  .skills-box {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .skills-title {
+    font-family: 'VT323';
+    font-size: 1.5rem;
+    color: var(--amber);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .skill-tag {
+    display: inline-block;
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    margin: 4px;
+    font-size: 12px;
+    color: var(--green-dim);
+    transition: all 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--green);
+    color: var(--green);
+    text-shadow: 0 0 6px var(--green-glow);
+    box-shadow: 0 0 8px var(--green-glow) inset;
+  }
+
+  /* SERVICES */
+  #services .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    border: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    position: relative;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: var(--green);
+    box-shadow: 0 0 20px rgba(0,255,65,0.1);
+    background: rgba(0,255,65,0.03);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'VT323';
+    font-size: 1.5rem;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--green-dim);
+    line-height: 1.7;
+  }
+
+  .card-corner {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 6px; height: 6px;
+    border-top: 1px solid var(--amber);
+    border-right: 1px solid var(--amber);
+  }
+
+  /* EXPERIENCE */
+  #experience .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--green), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-item::before {
+    content: '◆';
+    position: absolute;
+    left: -1.15rem;
+    top: 4px;
+    color: var(--amber);
+    font-size: 12px;
+  }
+
+  .timeline-date {
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-family: 'Share Tech Mono';
+  }
+
+  .timeline-role {
+    font-family: 'VT323';
+    font-size: 1.8rem;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+    letter-spacing: 2px;
+  }
+
+  .timeline-org {
+    font-size: 13px;
+    color: var(--green-dim);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-loc {
+    font-size: 12px;
+    color: #005500;
+    margin-bottom: 0.8rem;
+  }
+
+  .timeline-desc {
+    font-size: 13px;
+    color: var(--green-dim);
+    line-height: 1.8;
+    max-width: 600px;
+    border-left: 1px solid var(--border);
+    padding-left: 1rem;
+  }
+
+  .edu-box {
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    position: relative;
+  }
+
+  .edu-box::after {
+    content: 'EDU';
+    position: absolute;
+    top: -1px; right: 2rem;
+    background: var(--bg);
+    padding: 0 0.5rem;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 2px;
+  }
+
+  /* CONTACT */
+  #contact .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group { position: relative; }
+
+  .form-label {
+    display: block;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    background: rgba(0,15,0,0.6);
+    border: 1px solid var(--border);
+    color: var(--green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    padding: 0.7rem 1rem;
+    outline: none;
+    transition: all 0.2s;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 10px var(--green-glow);
+  }
+
+  .form-textarea { height: 120px; resize: none; }
+
+  .form-input::placeholder, .form-textarea::placeholder {
+    color: #003b00;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .info-item:hover {
+    border-color: var(--green);
+    background: rgba(0,255,65,0.03);
+  }
+
+  .info-icon { font-size: 1.2rem; min-width: 2rem; }
+
+  .info-label {
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 3px;
+  }
+
+  .info-val {
+    font-size: 13px;
+    color: var(--green-dim);
+    word-break: break-all;
+  }
+
+  .info-val a {
+    color: var(--green-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .info-val a:hover { color: var(--green); text-shadow: 0 0 6px var(--green-glow); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 6vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: #005500;
+    letter-spacing: 1px;
+  }
+
+  .footer-links { display: flex; gap: 1.5rem; }
+
+  .footer-links a {
+    font-size: 12px;
+    color: var(--green-dim);
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+
+  .footer-links a:hover { color: var(--green); text-shadow: 0 0 6px var(--green-glow); }
+
+  /* PIXEL CURSOR */
+  .px-cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    border: 2px solid var(--green);
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.1s;
+    transform: translate(-50%, -50%);
+  }
+
+  /* NOISE */
+  .noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    animation: noiseAnim 0.5s steps(2) infinite;
+  }
+
+  @keyframes noiseAnim {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(-2%,-1%); }
+    50% { transform: translate(1%,2%); }
+    75% { transform: translate(-1%,1%); }
+    100% { transform: translate(2%,-2%); }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--green-dark); border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .status-bar { display: none; }
+    #about .about-grid,
+    #contact .contact-grid { grid-template-columns: 1fr; }
+    section { padding: 3rem 1.5rem; }
+    .hero-title { font-size: clamp(3rem, 16vw, 6rem); }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+  }
+
+  /* Typed cursor */
+  .typed-cursor { animation: blink 0.8s step-end infinite; }
+
+  /* Section divider */
+  .divider {
+    text-align: center;
+    color: var(--border);
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin: 1rem 0;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1 class="fade-in">Samip Upreti</h1>
-    <nav class="slide-down">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="about" class="fade-in">
-      <h2>About Me</h2>
-      <p>I am a developer and educator based in Nepal. With a BSc.CSIT degree and experience in ICT education, I specialize in simplifying complex tech concepts and building creative projects.</p>
-    </section>
+<div class="grid-bg"></div>
+<div class="noise"></div>
+<div class="px-cursor" id="cursor"></div>
 
-    <section id="experience" class="fade-in">
-      <h2>Experience</h2>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SAMIP.EXE</div>
+  <ul class="nav-links">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#services">SERVICES</a></li>
+    <li><a href="#experience">EXPERIENCE</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+  <div class="status-bar">
+    <span id="clock">00:00:00</span>
+    <span>|</span>
+    <span>LALITPUR, NP</span>
+    <span>|</span>
+    <span class="blink">●</span> ONLINE
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-pre">> INITIALIZING PORTFOLIO v2.0 ...</div>
+  <h1 class="hero-title">SAMIP<br>UPRETI</h1>
+  <div class="hero-subtitle">DEVELOPER // EDUCATOR // MAKER</div>
+  <p class="hero-desc">
+    BSc.CSIT | Based in Nepal | Bridging technology and education through hands-on learning, creative curriculum design, and modern software development.
+  </p>
+  <div class="hero-btns">
+    <a href="#experience" class="btn">LOAD EXPERIENCE</a>
+    <a href="#contact" class="btn amber">PING ME</a>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<div class="terminal">
+  <div class="terminal-bar">
+    <div class="terminal-dots">
+      <div class="terminal-dot dot-r"></div>
+      <div class="terminal-dot dot-y"></div>
+      <div class="terminal-dot dot-g"></div>
+    </div>
+    <div class="terminal-title">samip@portfolio:~$</div>
+  </div>
+  <div class="terminal-body">
+    <div><span class="cmd">$ whoami</span></div>
+    <div class="output">samip_upreti — developer, educator, ICT specialist</div>
+    <div><span class="cmd">$ cat skills.txt</span></div>
+    <div class="output">Web Dev, Mobile Apps, Education Technology, Technical Training,</div>
+    <div class="output">BSc.CSIT, Curriculum Design, Makerspace, Digital Literacy</div>
+    <div><span class="cmd">$ location</span></div>
+    <div class="output">Lalitpur, Nepal 📍</div>
+    <div><span class="cmd">$ status</span></div>
+    <div class="output">Currently teaching @ Rato Bangala School <span class="blink">█</span></div>
+  </div>
+</div>
+
+<div class="divider">─── ◆ ────────────────────────────────────────────────────────────────── ◆ ───</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">[01]</span>
+    <h2 class="section-title">ABOUT_ME</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a developer and educator based in Nepal. With a BSc.CSIT degree and hands-on teaching experience, I bring technical depth and educational insight to the world of ICT and software development.</p>
+      <p>My passion lies in bridging the gap between complex technology concepts and accessible learning experiences. Through my work in education, I've discovered the power of making technology approachable for learners of all ages.</p>
+    </div>
+    <div class="skills-box">
+      <div class="skills-title">> SKILL_SET.DAT</div>
       <div>
-        <h3>Primary ICT Teacher - Rato Bangala School</h3>
-        <p>Oct 2024 – Present | Lalitpur, Nepal</p>
-        <p>Teaching computer science and Makerspace activities to primary-level students.</p>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Flutter</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Curriculum Design</span>
+        <span class="skill-tag">Makerspace</span>
+        <span class="skill-tag">Digital Literacy</span>
+        <span class="skill-tag">Arduino</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">EdTech</span>
       </div>
-      <div>
-        <h3>ICT Educator - Gems School</h3>
-        <p>Nov 2023 – Oct 2024 | Lalitpur, Nepal</p>
-        <p>Delivered digital literacy lessons and supported ICT curriculum development.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">─── ◆ ────────────────────────────────────────────────────────────────── ◆ ───</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-num">[02]</span>
+    <h2 class="section-title">WHAT_I_DO</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="card-corner"></div>
+      <span class="service-icon">🌐</span>
+      <div class="service-name">WEB_DEV</div>
+      <p class="service-desc">Modern web applications with focus on user experience and performance optimization.</p>
+    </div>
+    <div class="service-card">
+      <div class="card-corner"></div>
+      <span class="service-icon">📱</span>
+      <div class="service-name">MOBILE_APPS</div>
+      <p class="service-desc">Cross-platform mobile applications for iOS and Android using modern frameworks.</p>
+    </div>
+    <div class="service-card">
+      <div class="card-corner"></div>
+      <span class="service-icon">🎓</span>
+      <div class="service-name">EDU_TECH</div>
+      <p class="service-desc">Creating engaging educational content and digital learning experiences.</p>
+    </div>
+    <div class="service-card">
+      <div class="card-corner"></div>
+      <span class="service-icon">🔧</span>
+      <div class="service-name">TECH_TRAINING</div>
+      <p class="service-desc">Conducting workshops and training sessions on various technology topics.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">─── ◆ ────────────────────────────────────────────────────────────────── ◆ ───</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">[03]</span>
+    <h2 class="section-title">EXPERIENCE</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">OCT 2024 – PRESENT</div>
+      <div class="timeline-role">ICT & MAKERSPACE EDUCATOR</div>
+      <div class="timeline-org">Rato Bangala School</div>
+      <div class="timeline-loc">📍 Lalitpur, Nepal</div>
+      <p class="timeline-desc">Teaching computer science and Makerspace activities to young learners. Developing innovative curricula that combine theoretical computer science concepts with hands-on maker activities, fostering creativity and technical skills in students.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">NOV 2023 – OCT 2024</div>
+      <div class="timeline-role">ICT EDUCATOR</div>
+      <div class="timeline-org">Gems School</div>
+      <div class="timeline-loc">📍 Lalitpur, Nepal</div>
+      <p class="timeline-desc">Delivered engaging digital literacy lessons and improved the ICT curriculum. Successfully integrated modern teaching methodologies with technology education, resulting in improved student engagement and learning outcomes.</p>
+    </div>
+  </div>
+
+  <div class="edu-box">
+    <div class="timeline-date">2018 – 2022</div>
+    <div class="timeline-role">BSc.CSIT DEGREE</div>
+    <div class="timeline-loc">📍 Nepal</div>
+    <p class="timeline-desc" style="margin-top:0.5rem">Completed Bachelor of Science in Computer Science and Information Technology with focus on software development, database systems, and computer networks. Participated in various programming competitions and tech workshops.</p>
+  </div>
+</section>
+
+<div class="divider">─── ◆ ────────────────────────────────────────────────────────────────── ◆ ───</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">[04]</span>
+    <h2 class="section-title">CONTACT</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <form class="contact-form" action="https://formspree.io/f/mojpellw" method="POST" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label class="form-label">FULL_NAME</label>
+        <input type="text" name="name" class="form-input" placeholder="Enter your name..." required>
       </div>
-    </section>
-
-    <section id="contact" class="fade-in">
-      <h2>Contact</h2>
-      <form id="contact-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <div class="social">
-        <a href="https://linkedin.com/in/samipupreti" target="_blank">LinkedIn</a>
-        <a href="https://github.com/samipupreti" target="_blank">GitHub</a>
+      <div class="form-group">
+        <label class="form-label">EMAIL_ADDRESS</label>
+        <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
       </div>
-    </section>
-  </main>
+      <div class="form-group">
+        <label class="form-label">SUBJECT</label>
+        <input type="text" name="subject" class="form-input" placeholder="Message subject..." required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">YOUR_MESSAGE</label>
+        <textarea name="message" class="form-textarea" placeholder="Type your message here..." required></textarea>
+      </div>
+      <button type="submit" class="btn" id="sendBtn">SEND_MESSAGE</button>
+      <div id="formFeedback" style="font-size:13px;color:var(--amber);display:none;margin-top:0.5rem"></div>
+    </form>
 
-  <footer class="fade-in">
-    <p>&copy; 2025 Samip Upreti. All rights reserved.</p>
-  </footer>
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div>
+          <div class="info-label">EMAIL</div>
+          <div class="info-val"><a href="/cdn-cgi/l/email-protection#9aefeae8ffeee9fbf7f3eadafdf7fbf3f6b4f9f5f7"><span class="__cf_email__" data-cfemail="3f4a4f4d5a4b4c5e52564f7f58525e5653115c5052">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">LOCATION</div>
+          <div class="info-val">Lalitpur, Nepal</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">💼</div>
+        <div>
+          <div class="info-label">LINKEDIN</div>
+          <div class="info-val"><a href="https://www.linkedin.com/in/samip-upreti/" target="_blank">linkedin.com/in/samip-upreti</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Message sent (demo only).");
-      this.reset();
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">© 2025 SAMIP_UPRETI // ALL RIGHTS RESERVED</div>
+  <div class="footer-links">
+    <a href="/cdn-cgi/l/email-protection#eb9e9b998e9f988a86829bab8c868a8287c5888486">EMAIL</a>
+    <a href="https://www.linkedin.com/in/samip-upreti/" target="_blank">LINKEDIN</a>
+    <a href="#hero">↑ TOP</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Clock
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    const s = String(now.getSeconds()).padStart(2,'0');
+    const el = document.getElementById('clock');
+    if (el) el.textContent = `${h}:${m}:${s}`;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button, .service-card, .info-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+      cursor.style.borderColor = 'var(--amber)';
     });
-  </script>
-</body>
-</html>
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      cursor.style.borderColor = 'var(--green)';
+    });
+  });
+
+  // Form submit — Formspree integration
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('sendBtn');
+    const fb = document.getElementById('formFeedback');
+    const form = e.target;
+
+    btn.textContent = 'TRANSMITTING...';
+    btn.style.opacity = '0.6';
+    fb.style.display = 'none';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        btn.textContent = 'SENT ✓';
+        btn.style.borderColor = 'var(--amber)';
+        fb.style.display = 'block';
+        fb.style.color = 'var(--amber)';
+        fb.textContent = '> MESSAGE TRANSMITTED SUCCESSFULLY. WILL RESPOND SHORTLY.';
+        form.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      btn.textContent = 'ERROR — RETRY';
+      fb.style.display = 'block';
+      fb.style.color = '#ff4444';
+      fb.textContent = '> TRANSMISSION FAILED. TRY EMAILING DIRECTLY.';
+    } finally {
+      btn.style.opacity = '1';
+      setTimeout(() => {
+        btn.textContent = 'SEND_MESSAGE';
+        btn.style.borderColor = 'var(--green)';
+        fb.style.display = 'none';
+      }, 5000);
+    }
+  }
+
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.style.opacity = '1';
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .timeline-item, .info-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.5s ease';
+    observer.observe(el);
+  });
+
+  // Typing effect on hero-pre
+  const heroPre = document.
